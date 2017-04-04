@@ -10,7 +10,6 @@ namespace Pepperi.SDK.Model
 	public class Item
 	{
 		 public Boolean? AllowDecimal 	{get; set; }
-		 public String BrandExternalID 	{get; set; }
 		 public Double? CaseQuantity 	{get; set; }
 		 public Decimal? CostPrice 	{get; set; }
 		 public String Dimension1Code 	{get; set; }
@@ -30,6 +29,7 @@ namespace Pepperi.SDK.Model
 		 public Image Image6 	{get; set; }
 		 public Int64? InternalID 	{get; set; }
 		 public String LongDescription 	{get; set; }
+		 public String MainCategoryID 	{get; set; }
 		 public Double? MinimumQuantity 	{get; set; }
 		 public String Name 	{get; set; }
 		 public String ParentExternalID 	{get; set; }
