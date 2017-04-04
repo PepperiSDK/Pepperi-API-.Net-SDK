@@ -71,7 +71,7 @@ namespace Pepperi.SDK.Endpoints.Base
         ///     
         ///     used in 1:many relations when the child entity can not exist without the parent entity  
         ///             (Contact can not exist without the account)
-        ///             in that case, as you create the child entity (eg, Contact) you use its reference Property  (ExternalID or InternalID) to associte the child with existing parent.   [Do not use the ParentExternalId property of the child, since it is used obly in Bulk).
+        ///             in that case, as you create the child entity (eg, Contact) you use its reference Property  (ExternalID or InternalID) to associate the child with existing parent.   [Do not use the ParentExternalId property of the child, since it is used only in Bulk).
         /// 
         /// </remarks>
         public TModel Upsert(TModel Model, bool? include_nested = null)
@@ -107,8 +107,8 @@ namespace Pepperi.SDK.Endpoints.Base
        /// <param name="data"></param>
         /// <param name="OverrideMethod"></param>
        /// <param name="BulkUploadMethod"></param>
-       /// <param name="fieldsToUpload"></param>
-       /// <param name="FilePathToStoreZipFile">Optional. We can store the generated zip file for debugging purpose.</param>
+       /// <param name="fieldsToUpload"></param>s
+       /// <param name="FilePathToStoreZipFile">Optional. Stores the generated zip file for debugging purpose.</param>
        /// <returns></returns>
         public BulkUploadResponse BulkUpload(IEnumerable<TModel> data,eOverwriteMethod OverrideMethod,  eBulkUploadMethod BulkUploadMethod, IEnumerable<string> fieldsToUpload, bool SaveZipFileInLocalDirectory = false, string SubTypeID="")
         {
@@ -262,7 +262,7 @@ namespace Pepperi.SDK.Endpoints.Base
         /// <param name="include_nested">populate the References propeties of the result</param>
         /// <param name="full_mode">populate the Reference propeties of the result</param>
         /// <returns></returns>
-        public TModel FindByExternalID(string externalId, bool? include_nested = null, bool? full_mode = null)//not relevant for: inventory and user defined tables
+        public TModel FindByExternalID(string externalId, bool? include_nested = null, bool? full_mode = null)
         {
             string RequestUri = ResourceName + "//externalid//" + HttpUtility.UrlEncode(externalId);
             Dictionary<string, string> dicQueryStringParameters = new Dictionary<string, string>();
@@ -449,15 +449,15 @@ namespace Pepperi.SDK.Endpoints.Base
         /// <returns>the sub types of this resource</returns>
         /// <remarks>
         /// 1. some resources (eg, transaction and activity) are "abstract types".
-        ///    the concrete types "derive" from them:               eg, sales transaction, invoice  derive from transaction     (with header and lines) 
+        ///    the concrete types "derives" from them:               eg, sales transaction, invoice  derive from transaction     (with header and lines) 
         ///                                                         eg, visit                       derive from activity        (with header)
-        ///    the concrete class cusom fields are modeled as TSA filed
+        ///    the concrete class custom fields are modeled as TSA fields
         /// 2. All the types are returned by metadata endpoint 
         /// 3. Activities, Transactions are "abstract" type
         ///     The concrete type is identified by ActivityTypeID
         ///     For Bulk or CSV upload, the ActivityTypeID is sent on the url   
         ///     For single Upsert,      the ActivityTypeID is set on the object
-        ///     The values of the ActivityTypeID are taken from the SubTypeMetadata action
+        ///     The values of the ActivityTypeID are taken from the GetSubTypesMetadata method
         /// </remarks>
         public IEnumerable<TypeMetadata> GetSubTypesMetadata()
         {

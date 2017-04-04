@@ -11,6 +11,6 @@ namespace Pepperi.SDK.Contracts
     {
         AuthenticationHeaderValue GetAuthorizationHeaderValue();
         Dictionary<string, string> GetCustomRequestHeaders();
-        //Dictionary<string, string>  GetCustomQueryStringParameters();
+
     }
 }

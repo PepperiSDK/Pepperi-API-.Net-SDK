@@ -14,7 +14,7 @@ namespace Pepperi.SDK
 
         private string Username { get; set; }
         private string Password { get; set; }
-        private string AppConsumerKey { get; set; }                         //client id.        sent as X-Pepperi-ConsumerKey header on each request of the private application.     value taken from apigee. used by apigee to identify the application, the authentication type of the application and monitor the application activity.
+        private string AppConsumerKey { get; set; }             
         private bool AddConsumerKeyHeader { get; set; }
         #endregion
 

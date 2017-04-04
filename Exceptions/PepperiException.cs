@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Pepperi.SDK.Exceptions
 {
-    //TODO: do we need it ?
     public class PepperiException : Exception
     {
         public PepperiException()
